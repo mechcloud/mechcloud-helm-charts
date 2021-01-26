@@ -2,7 +2,7 @@
 MechCloud Helm Charts
 
 ## Deploying charts
-Follow README located in root folder of individual chart in the following order -
+Follow README files located in the root folder of individual charts in the following order -
   * oauth2-proxy
   * commons
   * platform

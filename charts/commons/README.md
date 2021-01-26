@@ -57,6 +57,10 @@ git clone -b <branch_or_tag> git@github.com:mechcloud/mechcloud-helm-charts.git
 ```
 
 ## Deployment options
+* This helm chart will be installing community version of mongodb in the target namespace.
+* If you want to use external mongodb instance, simply update mongodb details in `mechcloud-helm-charts/charts/commons/values.yaml` file as per your target deployment.
+
+## Deploying helm chart
 * Execute following commands to deploy MechCloud Commons -
 ```
 cd mechcloud-helm-charts/charts/commons
@@ -64,9 +68,10 @@ K8_NAMESPACE=mechcloud-commons
 helm -n $K8_NAMESPACE upgrade -i $K8_NAMESPACE --create-namespace . -f ../../values.yaml
 ```
 
-## Initialize MongoDB replicaset
+## (Optional)Initialize MongoDB replicaset
+* This is required only if you go ahead with mongodb instance included in this helm chart.
 ```
-# Find out mongodb pod name
+# Find out mongodb pod name and execute following command -
 kubectl exec -it <mongodb_pod_name> sh
 > mongo -u admin -p
 rs.initiate()
@@ -75,5 +80,4 @@ rs.status()
 
 ## Need help?
 * Please report any issue related to deployment here.
-* Issues related to application functionality can be reported in `https://github.com/mechcloud/mechcloud-commons` repository.
 

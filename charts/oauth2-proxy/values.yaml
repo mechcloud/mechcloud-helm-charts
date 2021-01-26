@@ -4,14 +4,14 @@
 
 # Configuration parameters for oauth2 provider
 mechcloud:
-   baseUrl: ""
+   baseUrl: "" # e.g. https://demo.mechcloud.lab
 oauth2Provider:
-   cookieDomain: ""
-   displayName: ""
-   clientId: ""
+   cookieDomain: "" # e.g. '.mechcloud.lab'
+   displayName: ""  # e.g. Auth0
+   clientId: "" 
    clientSecret: ""
    # docker run -ti --rm python:3-alpine python -c 'import secrets,base64; print(base64.b64encode(base64.b64encode(secrets.token_bytes(16))));'
    cookieSecret: ""
-   baseUrl: ""
+   baseUrl: "" # e.g. https://mechcloud.au.auth0.com
    
    

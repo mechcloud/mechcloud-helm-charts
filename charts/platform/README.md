@@ -18,7 +18,7 @@ kubectl -n $K8_NAMESPACE create secret generic docker-reg-creds \
     --type=kubernetes.io/dockerconfigjson
 ```
 
-## Deployment options
+## Deploy helm chart
 * Execute following commands to deploy MechCloud Platform -
 ```
 cd mechcloud-helm-charts/charts/platform
@@ -28,4 +28,4 @@ helm -n $K8_NAMESPACE upgrade -i $K8_NAMESPACE --create-namespace . -f ../../val
 
 ## Need help?
 * Please report any issue related to deployment here.
-* Issues related to application functionality can be reported in `https://github.com/mechcloud/mechcloud-platform` repository.
+
