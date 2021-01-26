@@ -6,7 +6,7 @@ images:
   mongoDb: mongo:4.4.2-bionic
   redis: redis:6.0.9-alpine
 authorization:
-  setupAdmin: platformadmin@mechcloud.io
+  setupAdmin: "" # e.g. platformadmin@mechcloud.io
 mongo:
   hostPort: commons-mongodb:80
   username: admin
