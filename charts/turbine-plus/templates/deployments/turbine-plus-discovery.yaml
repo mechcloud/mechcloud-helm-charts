@@ -1,0 +1,31 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: turbine-plus-discovery
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: turbine-plus-discovery
+  template:
+    metadata:
+      labels:
+        app: turbine-plus-discovery
+    spec:
+      containers:
+      - name: turbine-plus-discovery
+        image: {{ .Values.images.turbinePlusDiscovery }}
+        envFrom:
+        - configMapRef:
+            name: python-common-configs
+        - configMapRef:
+            name: common-services-configs
+        - configMapRef:
+            name: turbine-plus-discovery-configs
+        ports:
+        - containerPort: 5000
+      {{ if .Values.global.secureRegistry }}
+      imagePullSecrets:
+        - name: docker-reg-creds
+      {{ end }}
+      restartPolicy: Always

@@ -1,0 +1,31 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: platform-iam
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: platform-iam
+  template:
+    metadata:
+      labels:
+        app: platform-iam
+    spec:
+      containers:
+      - name: platform-iam
+        image: {{ .Values.images.platformIam }}
+        envFrom:
+        - configMapRef:
+            name: python-common-configs
+        - configMapRef:
+            name: common-services-configs
+        - configMapRef:
+            name: platform-iam-configs
+        ports:
+        - containerPort: 5000
+      {{ if .Values.global.secureRegistry }}
+      imagePullSecrets:
+        - name: docker-reg-creds
+      {{ end }}
+      restartPolicy: Always

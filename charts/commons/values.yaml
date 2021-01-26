@@ -1,0 +1,13 @@
+images:
+  mechcloudUi: mechcloud/mechcloud-ui:v1.0.1
+  commonsAuthz: mechcloud/commons-authorization:v1.0.0
+  commonsSettings: mechcloud/commons-settings:v1.0.0
+  commonsEntities: mechcloud/commons-entities:v1.0.0
+  mongoDb: mongo:4.4.2-bionic
+  redis: redis:6.0.9-alpine
+authorization:
+  setupAdmin: platformadmin@mechcloud.io
+mongo:
+  hostPort: commons-mongodb:80
+  username: admin
+  password: mechcloud

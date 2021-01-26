@@ -1,0 +1,40 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: commons-mongodb
+spec:
+  replicas: {{ .Values.global.replicaCount }}
+  selector:
+    matchLabels:
+      app: commons-mongodb
+  template:
+    metadata:
+      labels:
+        app: commons-mongodb
+    spec:
+      containers:
+      - name: mongodb
+        image: {{ .Values.images.mongoDb }}
+        args: ["--replSet", "rs0"]
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: commons-mongodb
+              key: username
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: commons-mongodb
+              key: password
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - name: vol1
+          mountPath: /data/db
+          subPath: mongodb
+      restartPolicy: Always
+      volumes:
+      - name: vol1
+        persistentVolumeClaim:
+          claimName: commons-mongodb

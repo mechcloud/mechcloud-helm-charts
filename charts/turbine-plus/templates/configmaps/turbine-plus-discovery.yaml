@@ -1,0 +1,13 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+   name: turbine-plus-discovery-configs
+data:
+   APP_NAME: turbine-plus-discovery
+   REDIS_HOST: commons-redis.mechcloud-commons
+   REDIS_PORT: "80"
+   SRV_ADMINISTRATION_BASE_URL: http://turbine-plus-administration:80/v1.0
+   SRV_AWS_ADAPTER_BASE_URL: http://turbine-plus-aws-adapter:80/v1.0
+   SRV_IC_ADAPTER_BASE_URL: http://turbine-plus-ic-adapter:80/v1.0
+   
+    

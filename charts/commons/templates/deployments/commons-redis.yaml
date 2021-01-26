@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: commons-redis
+spec:
+  replicas: {{ .Values.global.replicaCount }}
+  selector:
+    matchLabels:
+      app: commons-redis
+  template:
+    metadata:
+      labels:
+        app: commons-redis
+    spec:
+      containers:
+      - name: commons-redis
+        image: {{ .Values.images.redis }}
+        ports:
+        - containerPort: 6379
+      restartPolicy: Always

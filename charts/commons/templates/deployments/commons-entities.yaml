@@ -1,0 +1,40 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: commons-entities
+spec:
+  replicas: {{ .Values.global.replicaCount }}
+  selector:
+    matchLabels:
+      app: commons-entities
+  template:
+    metadata:
+      labels:
+        app: commons-entities
+    spec:
+      containers:
+      - name: commons-entities
+        image: {{ .Values.images.commonsEntities }}
+        envFrom:
+        - configMapRef:
+            name: python-common-configs
+        - configMapRef:
+            name: commons-entities-configs
+        env:
+        - name: MONGO_USER
+          valueFrom:
+            secretKeyRef:
+              name: commons-mongodb
+              key: username
+        - name: MONGO_PWD
+          valueFrom:
+            secretKeyRef:
+              name: commons-mongodb
+              key: password
+        ports:
+        - containerPort: 5000
+      {{ if .Values.global.secureRegistry }}
+      imagePullSecrets:
+        - name: docker-reg-creds
+      {{ end }}
+      restartPolicy: Always

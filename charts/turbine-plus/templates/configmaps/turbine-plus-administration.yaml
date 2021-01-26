@@ -1,0 +1,7 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+   name: turbine-plus-administration-configs
+data:
+   APP_NAME: turbine-plus-administration
+    

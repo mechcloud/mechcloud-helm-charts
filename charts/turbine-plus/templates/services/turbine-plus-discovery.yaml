@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: turbine-plus-discovery
+spec:
+  ports:
+    - name: "http"
+      port: {{ .Values.global.services.port }}
+      targetPort: {{ .Values.global.services.serviceTargetPort }}
+  selector:
+    app: turbine-plus-discovery

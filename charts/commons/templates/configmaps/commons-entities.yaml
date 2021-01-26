@@ -1,0 +1,7 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+   name: commons-entities-configs
+data:
+   APP_NAME: commons-entities
+   MONGO_HOST_PORT: {{ .Values.mongo.hostPort }}

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: turbine-plus-ui
+spec:
+  ports:
+    - name: "http"
+      port: {{ .Values.global.services.port }}
+      targetPort: {{ .Values.global.services.uiTargetPort }}
+  selector:
+    app: turbine-plus-ui

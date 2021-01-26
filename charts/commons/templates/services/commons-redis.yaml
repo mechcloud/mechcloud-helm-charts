@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: commons-redis
+spec:
+  ports:
+    - name: "http"
+      port: {{ .Values.global.services.port }}
+      targetPort: 6379
+  selector:
+    app: commons-redis

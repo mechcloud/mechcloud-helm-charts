@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mechcloud-ui
+spec:
+  replicas: {{ .Values.global.replicaCount }}
+  selector:
+    matchLabels:
+      app: mechcloud-ui
+  template:
+    metadata:
+      labels:
+        app: mechcloud-ui
+    spec:
+      containers:
+      - name: mechcloud-ui
+        image: {{ .Values.images.mechcloudUi }}
+        ports:
+        - containerPort: 80
+      {{ if .Values.global.secureRegistry }}
+      imagePullSecrets:
+        - name: docker-reg-creds
+      {{ end }}
+      restartPolicy: Always
+      
+      

@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: commons-mongodb
+spec:
+  ports:
+    - name: "http"
+      port: {{ .Values.global.services.port }}
+      targetPort: 27017
+  selector:
+    app: commons-mongodb
