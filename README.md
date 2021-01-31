@@ -1,5 +1,4 @@
-# mechcloud-helm-charts
-MechCloud Helm Charts
+# MechCloud Helm Charts
 
 ## Deploying charts
 * If you want to use `oauth2-proxy` included in this repository then register an application in an OpenID Connect provider of your choice and update details of registered application (e.g. Client ID, Client Secret etc) in `charts\oauth2-proxy\values.yaml` file according to your set up.
@@ -24,6 +23,6 @@ MechCloud Helm Charts
   - VPC
   - Subnet
   - Virtual Servers
-  - Kubernetes (Supported for IBM Cloud only)
+  - Kubernetes (Supported for IBM Cloud only in this release)
 
   
