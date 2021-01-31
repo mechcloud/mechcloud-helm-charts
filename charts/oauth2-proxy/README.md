@@ -1,5 +1,5 @@
 # OAuth2 Proxy
-## Clone git repository and updating values.yaml file
+## Clone git repository and update values.yaml file
 * Make sure [helm 3](https://helm.sh/docs/intro/install) client is installed in an environment where you will be executing these instructions from.
 * Clone this repository.
 ```
