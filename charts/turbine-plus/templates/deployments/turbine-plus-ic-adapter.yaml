@@ -1,0 +1,36 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: turbine-plus-ic-adapter
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: turbine-plus-ic-adapter
+  template:
+    metadata:
+      labels:
+        app: turbine-plus-ic-adapter
+    spec:
+      containers:
+      - name: turbine-plus-ic-adapter
+        image: {{ .Values.images.turbinePlusIcAdapter }}
+        envFrom:
+        - configMapRef:
+            name: python-common-configs
+        - configMapRef:
+            name: common-services-configs
+        - configMapRef:
+            name: turbine-plus-ic-adapter-configs
+        ports:
+        - containerPort: 5000
+      # this is required otherwise dns resolution will NOT work
+      dnsConfig:
+        options:
+        - name: ndots
+          value: "1"
+      {{ if .Values.global.secureRegistry }}
+      imagePullSecrets:
+        - name: docker-reg-creds
+      {{ end }}
+      restartPolicy: Always
