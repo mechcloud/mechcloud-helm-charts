@@ -1,2 +1,4 @@
 .project
 .pydevproject
+/deploy.sh
+/overrides.yaml

@@ -3,14 +3,16 @@
 # Declare variables to be passed into your templates.
 
 global:
+   namespaces:
+      oauth2Proxy: mechcloud-oauth2-proxy
+      commons: mechcloud-commons
+      platform: mechcloud-platform
+      turbinePlus: mechcloud-turbine-plus
    secureRegistry: false # or true if you are pulling images from an image registry which requires authentication
    authProxy: true # or false if you don't want to use oauth2-proxy (https://oauth2-proxy.github.io/oauth2-proxy)
    # Below url is valid only if you are using oauth2-proxy helm chart supplied with this charts repository
    # if that is not the case then update this url as per your deployment
-   authUrl: http://oauth2-proxy.oauth2-proxy.svc.cluster.local:4180/oauth2/auth
-   commonServices:
-      authorization: http://commons-authorization.mechcloud-commons:80/v1.0
-      entities: http://commons-entities.mechcloud-commons:80/v1.0
+   authUrl: http://oauth2-proxy.mechcloud-oauth2-proxy.svc.cluster.local:4180/oauth2/auth
    replicaCount: 1
    services:
       port: 80

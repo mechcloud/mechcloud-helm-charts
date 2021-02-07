@@ -4,5 +4,3 @@ metadata:
    name: commons-settings-configs
 data:
    APP_NAME: commons-settings
-   SRV_COMMONS_AUTHZ_BASE_URL: http://commons-authorization:{{ .Values.global.services.port }}/v1.0
-   SRV_COMMONS_ENTITIES_BASE_URL: http://commons-entities:{{ .Values.global.services.port }}/v1.0 

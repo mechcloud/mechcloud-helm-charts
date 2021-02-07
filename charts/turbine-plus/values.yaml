@@ -1,9 +1,9 @@
 images:
-  turbinePlusUi: mechcloud/turbine-plus-ui:v1.0.1
-  turbinePlusAdministration: mechcloud/turbine-plus-administration:v1.0.0
-  turbinePlusDiscovery: mechcloud/turbine-plus-discovery:v1.0.0
-  turbinePlusAssets: mechcloud/turbine-plus-assets:v1.0.0
+  turbinePlusUi: mechcloud/turbine-plus-ui:v1.0.2
+  turbinePlusAdministration: mechcloud/turbine-plus-administration:v1.0.1
+  turbinePlusDiscovery: mechcloud/turbine-plus-discovery:v1.0.1
+  turbinePlusAssets: mechcloud/turbine-plus-assets:v1.0.1
   turbinePlusPluginIc: mechcloud/turbine-plus-plugin-ic:v1.0.0
-  turbinePlusIcAdapter: mechcloud/turbine-plus-ic-adapter:v1.0.1
+  turbinePlusIcAdapter: mechcloud/turbine-plus-ic-adapter:v1.0.2
   turbinePlusPluginAws: mechcloud/turbine-plus-plugin-aws:v1.0.0
-  turbinePlusAwsAdapter: mechcloud/turbine-plus-aws-adapter:v1.0.1
+  turbinePlusAwsAdapter: mechcloud/turbine-plus-aws-adapter:v1.0.2

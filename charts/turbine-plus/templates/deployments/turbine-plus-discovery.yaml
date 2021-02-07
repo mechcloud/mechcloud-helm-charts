@@ -19,7 +19,9 @@ spec:
         - configMapRef:
             name: python-common-configs
         - configMapRef:
-            name: common-services-configs
+            name: commons-services-configs
+        - configMapRef:
+            name: platform-services-configs
         - configMapRef:
             name: turbine-plus-discovery-configs
         ports:
