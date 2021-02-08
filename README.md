@@ -12,16 +12,13 @@ Visualization of the following resources is supported in this release -
 **IBM Cloud**
 * VPC Networking
   - Regions/Zones
-  - VPCs
-  - Subnets
+  - VPCs / Subnets
   - Virtual Machines
   - Kubenetes Clusters 
 * Classic Networking
   - Metros / Datacenters
-  - Vlans
-  - Subnets
-  - Virtual Machines
-  - Bare Metal Servers
+  - Vlans / Subnets
+  - Virtual Machines / Bare Metal Servers
   - Kubernetes Clusters
 
 ## Deploying charts
@@ -49,4 +46,6 @@ Visualization of the following resources is supported in this release -
   - Virtual Servers
   - Kubernetes (Supported for IBM Cloud only in this release)
 
+## Product documentation
+Due to time constraint I am unable to create any good documentation for MechCloud. However you can find detailed demos on MechCloud youtube playlist ![MechCloud Youtube](https://www.youtube.com/playlist?list=PLKIm9A1s_m4wgyo0IKHtKSuvOvrVYfric) which should help you to get started in a very short time.
   
