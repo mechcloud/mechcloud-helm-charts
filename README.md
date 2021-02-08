@@ -47,5 +47,5 @@ Visualization of the following resources is supported in this release -
   - Kubernetes (Supported for IBM Cloud only in this release)
 
 ## Product documentation
-Due to time constraint I am unable to create any good documentation for MechCloud. However you can find detailed demos on MechCloud youtube playlist ![MechCloud Youtube](https://www.youtube.com/playlist?list=PLKIm9A1s_m4wgyo0IKHtKSuvOvrVYfric) which should help you to get started in a very short time.
+Due to time constraint I am unable to create good documentation for MechCloud. However you can find detailed demos on MechCloud youtube playlist [MechCloud Youtube Playlist](https://www.youtube.com/playlist?list=PLKIm9A1s_m4wgyo0IKHtKSuvOvrVYfric) which should help you to get started in a very short time.
   
