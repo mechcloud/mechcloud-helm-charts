@@ -1,8 +1,8 @@
 images:
-  mechcloudUi: mechcloud/mechcloud-ui:v1.0.2
-  commonsAuthz: mechcloud/commons-authorization:v1.0.1
-  commonsSettings: mechcloud/commons-settings:v1.0.1
-  commonsEntities: mechcloud/commons-entities:v1.0.1
+  mechcloudUi: mechcloud/mechcloud-ui:v1.0.3
+  commonsAuthz: mechcloud/commons-authorization:v1.0.2
+  commonsSettings: mechcloud/commons-settings:v1.0.2
+  commonsEntities: mechcloud/commons-entities:v1.0.2
   mongoDb: mongo:4.4.2-bionic
   redis: redis:6.0.9-alpine
 authorization:
