@@ -5,3 +5,5 @@ metadata:
 data:
    SRV_COMMONS_AUTHZ_BASE_URL: http://commons-authorization.{{ .Values.global.namespaces.commons }}:80/v1.0
    SRV_COMMONS_ENTITIES_BASE_URL: http://commons-entities.{{ .Values.global.namespaces.commons }}:80/v1.0
+   REDIS_HOST: commons-redis.{{ .Values.global.namespaces.commons }}
+   REDIS_PORT: "80"
