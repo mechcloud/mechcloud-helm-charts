@@ -19,8 +19,6 @@ spec:
         - configMapRef:
             name: python-common-configs
         - configMapRef:
-            name: commons-services-configs
-        - configMapRef:
             name: turbine-plus-aws-adapter-configs
         ports:
         - containerPort: 5000
