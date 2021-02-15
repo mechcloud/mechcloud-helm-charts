@@ -1,4 +1,4 @@
 .project
 .pydevproject
 /deploy.sh
-/overrides.yaml
+/local-k8s-lb_overrides.yaml
