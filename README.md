@@ -38,7 +38,7 @@ Visualization of the following resources is supported in this release -
 
 ## Addressing security concerns
 
-![Recommended secure deployment](https://raw.githubusercontent.com/mechcloud/mechcloud-helm-charts/main/images/mechcloud-recommended-secure-setup.png)
+![Recommended secure deployment](https://raw.githubusercontent.com/mechcloud/mechcloud-site-content/master/images/mechcloud/mechcloud-recommended-setup.png)
 
 * DON'T configure root user for your cloud account in this application. Use a service account for IBM Cloud and equivalent of it for AWS. Also make sure that these service accounts are having minimal read-only access ONLY to target public cloud api. This release requires read-only access to following resources -
   - VPC
