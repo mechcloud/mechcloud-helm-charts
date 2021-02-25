@@ -1,0 +1,10 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+   name: turbine-plus-services-configs
+data:
+   SRV_TURBINE_PLUS_ADMINISTRATION_BASE_URL: http://turbine-plus-administration.{{ .Values.global.namespaces.turbinePlus }}:80/v1.0
+   SRV_TURBINE_PLUS_DISCOVERY_BASE_URL: http://turbine-plus-discovery.{{ .Values.global.namespaces.turbinePlus }}:80/v1.0
+   SRV_TURBINE_PLUS_ASSETS_BASE_URL: http://turbine-plus-assets.{{ .Values.global.namespaces.turbinePlus }}:80/v1.0
+   SRV_TURBINE_PLUS_IC_ADAPTER_BASE_URL: http://turbine-plus-ic-adapter.{{ .Values.global.namespaces.turbinePlus }}:80/v1.0
+   SRV_TURBINE_PLUS_AWS_ADAPTER_BASE_URL: http://turbine-plus-aws-adapter.{{ .Values.global.namespaces.turbinePlus }}:80/v1.0

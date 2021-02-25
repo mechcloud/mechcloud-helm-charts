@@ -23,6 +23,8 @@ spec:
         - configMapRef:
             name: platform-services-configs
         - configMapRef:
+            name: turbine-plus-services-configs
+        - configMapRef:
             name: turbine-plus-discovery-configs
         ports:
         - containerPort: 5000

@@ -1,3 +1,4 @@
+{{ if .Values.global.redis.internal }}
 kind: Deployment
 apiVersion: apps/v1
 metadata:
@@ -14,7 +15,8 @@ spec:
     spec:
       containers:
       - name: commons-redis
-        image: {{ .Values.images.redis }}
+        image: {{ .Values.global.redis.image }}
         ports:
         - containerPort: 6379
       restartPolicy: Always
+{{ end }}

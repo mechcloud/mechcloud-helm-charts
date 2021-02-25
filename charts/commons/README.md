@@ -1,5 +1,5 @@
 # MechCloud Commons
-## (Optional) Create Storage Class
+## Create Storage Class (Required only if you will be using mongodb included in this chart)
 ```
 cat <<EOF >storageClass.yaml
 kind: StorageClass
@@ -13,7 +13,7 @@ EOF
 kubectl apply -f storageClass.yaml
 ```
 
-## (Optional) Create PV
+## Create PV (Required only if you will be using mongodb included in this chart)
 ```
 sudo mkdir -p /mnt/data/mechcloud
 
@@ -37,7 +37,7 @@ EOF
 kubectl apply -f mechcloud-pv.yaml
 ```
 
-## (Optional)Create docker registry secret
+## Create docker registry secret (Required only if you will be pulling docker images from a private registry)
 ```
 docker login
 

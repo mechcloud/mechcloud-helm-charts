@@ -21,6 +21,10 @@ spec:
         - configMapRef:
             name: commons-services-configs
         - configMapRef:
+            name: platform-services-configs
+        - configMapRef:
+            name: turbine-plus-services-configs
+        - configMapRef:
             name: turbine-plus-assets-configs
         ports:
         - containerPort: 5000

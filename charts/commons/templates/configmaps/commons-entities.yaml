@@ -4,4 +4,4 @@ metadata:
    name: commons-entities-configs
 data:
    APP_NAME: commons-entities
-   MONGO_HOST_PORT: {{ .Values.mongo.hostPort }}
+   MONGO_HOST_PORT: {{ .Values.global.mongo.host }}:{{ .Values.global.mongo.port | quote }}
