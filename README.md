@@ -1,26 +1,5 @@
 # MechCloud Helm Charts
 
-## Features implemented in this release
-Visualization of the following resources is supported in this release -
-
-**AWS**
- * Regions / Zones
- * VPCs
- * Subnets
- * Virtual Machines
-
-**IBM Cloud**
-* VPC Networking
-  - Regions/Zones
-  - VPCs / Subnets
-  - Virtual Machines
-  - Kubenetes Clusters 
-* Classic Networking
-  - Metros / Datacenters
-  - Vlans / Subnets
-  - Virtual Machines / Bare Metal Servers
-  - Kubernetes Clusters
-
 ## Deploying charts
 * If you want to use `oauth2-proxy` included in this repository then register an application in an OpenID Connect provider of your choice and update details of registered application (e.g. Client ID, Client Secret etc) in `charts\oauth2-proxy\values.yaml` file according to your set up.
 * If you want to use some other auth/sso proxy for api authentication/authorization then update value of `authProxy` to `false` and set value of `authUrl` in `values.yaml` file (located in the root folder of this repository) as per your target deployment.
