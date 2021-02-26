@@ -1,6 +1,6 @@
 images:
   turbinePlusUi: mechcloud/turbine-plus-ui:v2.0.2
-  turbinePlusAdministration: mechcloud/turbine-plus-administration:v1.0.4
+  turbinePlusAdministration: mechcloud/turbine-plus-administration:v1.0.5
   turbinePlusDiscovery: mechcloud/turbine-plus-discovery:v1.0.6
   turbinePlusAssets: mechcloud/turbine-plus-assets:v1.0.4
   turbinePlusPluginIc: mechcloud/turbine-plus-plugin-ic:v1.0.3
