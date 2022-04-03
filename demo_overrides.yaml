@@ -1,6 +1,5 @@
 global:
   baseUrl: https://demo.mechcloud.io
-  secureRegistry: true
   mongo:
     hostsPorts: demo.mechcloud.io:27017
   redis:
@@ -20,4 +19,4 @@ oauth2Provider:
 
 # platform namespace
 authorization:
-   setupAdmin: platformadmin@mechcloud.io
+   setupAdmin: ''

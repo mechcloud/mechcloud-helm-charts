@@ -11,11 +11,6 @@ global:
     platform: mechcloud-platform
     turbine: mechcloud-turbine
   
-  # Docker registry
-  # There are no variables to capture private registery username/password because
-  # these are passed to deploy.sh script directly.
-  secureRegistry: false    # this MUST be set in <env>_overrides.yaml file for any value other than default value
-  
   replicaCount: 1
   
   services:
