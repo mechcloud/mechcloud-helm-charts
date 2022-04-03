@@ -1,9 +1,0 @@
-kind: ConfigMap
-apiVersion: v1
-metadata:
-  name: commons-services-configs
-data:
-  SRV_COMMONS_AUTHZ_BASE_URL: http://commons-authorization.{{ .Values.global.namespaces.commons }}:80/v1.0
-  SRV_COMMONS_ENTITIES_BASE_URL: http://commons-entities.{{ .Values.global.namespaces.commons }}:80/v1.0
-  REDIS_HOST: {{ .Values.global.redis.host }}
-  REDIS_PORT: {{ .Values.global.redis.port | quote }}

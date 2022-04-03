@@ -1,0 +1,35 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mechcloud-platform-services
+  annotations:
+    nginx.ingress.kubernetes.io/auth-url: {{ .Values.global.authUrl }}
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      proxy_set_header Request-Id $request_id;
+      more_set_headers "Request-Id: $request_id";
+      proxy_set_header Mc-Caller-Service-Id "";
+      auth_request_set $user   $upstream_http_x_auth_request_user;
+      auth_request_set $email  $upstream_http_x_auth_request_email;
+      proxy_set_header Oauth2-Proxy-User  $user;
+      proxy_set_header Oauth2-Proxy-Email $email;
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /mechcloud-platform-iam(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: mechcloud-platform-iam
+            port: 
+              number: 80
+      - path: /mechcloud-platform-authorization(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: mechcloud-platform-authorization
+            port: 
+              number: 80  
+

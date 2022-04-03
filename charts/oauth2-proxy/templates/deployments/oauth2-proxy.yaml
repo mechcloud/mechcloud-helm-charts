@@ -1,24 +1,24 @@
-{{ if .Values.global.authProxy }}
+{{ if .Values.authProxy }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: oauth2-proxy
+  name: mechcloud-oauth2-proxy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: oauth2-proxy
+      app: mechcloud-oauth2-proxy
   template:
     metadata:
       labels:
-        app: oauth2-proxy
+        app: mechcloud-oauth2-proxy
     spec:
       containers:
-      - name: oauth2-proxy
-        image: quay.io/oauth2-proxy/oauth2-proxy:v6.1.1
+      - name: mechcloud-oauth2-proxy
+        image: quay.io/oauth2-proxy/oauth2-proxy:v7.2.1
         args:
         - --email-domain=*
-        - --cookie-domain={{ .Values.oauth2Provider.cookieDomain }}
+        - --cookie-domain={{ .Values.oauth2Provider.proxy.cookieDomain }}
         - --cookie-expire=24h0m0s
         - --cookie-refresh=0h30m0s
         - --upstream=file:///dev/null
@@ -26,27 +26,27 @@ spec:
         - --set-xauthrequest=true
         - --provider=oidc
         - --provider-display-name={{ .Values.oauth2Provider.displayName }}
-        - --redirect-url={{ .Values.mechcloud.baseUrl }}/oauth2/callback
-        - --oidc-issuer-url={{ .Values.oauth2Provider.baseUrl }}/
-        - --login-url={{ .Values.oauth2Provider.baseUrl }}/authorize
-        - --redeem-url={{ .Values.oauth2Provider.baseUrl }}/oauth/token
-        - --validate-url={{ .Values.oauth2Provider.baseUrl }}/userinfo
-        - --profile-url={{ .Values.oauth2Provider.baseUrl }}/userinfo
+        - --redirect-url={{ .Values.global.baseUrl }}/oauth2/callback
+        - --oidc-issuer-url={{ .Values.oauth2Provider.proxy.baseUrl }}/
+        - --login-url={{ .Values.oauth2Provider.proxy.baseUrl }}/authorize
+        - --redeem-url={{ .Values.oauth2Provider.proxy.baseUrl }}/oauth/token
+        - --validate-url={{ .Values.oauth2Provider.proxy.baseUrl }}/userinfo
+        - --profile-url={{ .Values.oauth2Provider.proxy.baseUrl }}/userinfo
         env:
         - name: OAUTH2_PROXY_CLIENT_ID
           valueFrom:
             secretKeyRef:
-              name: oauth2-proxy
+              name: mechcloud-oauth2-proxy
               key: clientId
         - name: OAUTH2_PROXY_CLIENT_SECRET
           valueFrom:
             secretKeyRef:
-              name: oauth2-proxy
+              name: mechcloud-oauth2-proxy
               key: clientSecret
         - name: OAUTH2_PROXY_COOKIE_SECRET
           valueFrom:
             secretKeyRef:
-              name: oauth2-proxy
+              name: mechcloud-oauth2-proxy
               key: cookieSecret
         imagePullPolicy: Always
         ports:

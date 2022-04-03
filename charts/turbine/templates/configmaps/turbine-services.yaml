@@ -1,0 +1,10 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+   name: mechcloud-turbine-services-configs
+data:
+   SRV_TURBINE_ADMINISTRATION_BASE_URL: http://mechcloud-turbine-administration.{{ .Values.global.namespaces.turbine }}:{{ .Values.global.services.port }}/v1.0
+   SRV_TURBINE_ASSETS_BASE_URL: http://mechcloud-turbine-assets.{{ .Values.global.namespaces.turbine }}:{{ .Values.global.services.port }}/v1.0
+   SRV_TURBINE_CLOUD_ADAPTER_BASE_URL: http://mechcloud-turbine-cloud-adapter.{{ .Values.global.namespaces.turbine }}:{{ .Values.global.services.port }}/v1.0
+   SRV_TURBINE_DISCOVERY_BASE_URL: http://mechcloud-turbine-discovery.{{ .Values.global.namespaces.turbine }}:{{ .Values.global.services.port }}/v1.0
+   SRV_TURBINE_GCP_ADAPTER_BASE_URL: http://mechcloud-turbine-gcp-adapter.{{ .Values.global.namespaces.turbine }}:{{ .Values.global.services.port }}/v1.0

@@ -1,11 +1,11 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: mechcloud-platform-iam
+  name: mechcloud-platform-authorization
 spec:
   ports:
     - name: "http"
       port: {{ .Values.global.services.port }}
       targetPort: {{ .Values.global.services.serviceTargetPort }}
   selector:
-    app: mechcloud-platform-iam
+    component: mechcloud-platform-authorization

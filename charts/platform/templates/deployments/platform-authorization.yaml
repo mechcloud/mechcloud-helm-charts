@@ -1,21 +1,24 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: mechcloud-platform-iam
+  name: mechcloud-platform-authorization
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: mechcloud-platform-iam
+      component: mechcloud-platform-authorization
   template:
     metadata:
       labels:
         suite: mechcloud
-        app: mechcloud-platform-iam
+        component: mechcloud-platform-authorization
     spec:
       containers:
-      - name: mechcloud-platform-iam
-        image: {{ .Values.images.platformIam }}
+      - name: mechcloud-platform-authorization
+        image: {{ .Values.images.platformAuthz }}
+        env:
+        - name: SETUP_ADMIN
+          value: {{ .Values.authorization.setupAdmin }}
         envFrom:
         - configMapRef:
             name: mechcloud-python-common-configs

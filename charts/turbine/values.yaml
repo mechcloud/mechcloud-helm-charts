@@ -1,0 +1,7 @@
+images:
+  turbineUi: mechcloud/mechcloud-app-turbine:v4.0.0-55-1
+  turbineAdministration: mechcloud/mechcloud-turbine-administration:v4.0.0-125-1
+  turbineAssets: mechcloud/mechcloud-turbine-assets:v4.0.0-124-1
+  turbineCloudAdapter: mechcloud/mechcloud-turbine-cloud-adapter:v4.0.0-86-1
+  turbineDiscovery: mechcloud/mechcloud-turbine-discovery:v4.0.0-165-1
+  turbineGCPAdapter: mechcloud/mechcloud-turbine-gcp-adapter:v4.0.0-108-1

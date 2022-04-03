@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mechcloud-platform-ui
+  name: mechcloud-commons-ui
 spec:
   replicas: {{ .Values.global.replicaCount }}
   selector:
     matchLabels:
-      app: mechcloud-platform-ui
+      app: mechcloud-commons-ui
   template:
     metadata:
       labels:
         suite: mechcloud
-        app: mechcloud-platform-ui
+        app: mechcloud-commons-ui
     spec:
       containers:
-      - name: mechcloud-platform-ui
-        image: {{ .Values.images.platformUi }}
+      - name: mechcloud-commons-ui
+        image: {{ .Values.images.commonsUi }}
         ports:
         - containerPort: 80
       restartPolicy: Always

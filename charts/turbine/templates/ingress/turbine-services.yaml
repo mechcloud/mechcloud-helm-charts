@@ -1,0 +1,58 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mechcloud-turbine-services
+  annotations:
+    nginx.ingress.kubernetes.io/auth-url: {{ .Values.global.authUrl }}
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      proxy_set_header Request-Id $request_id;
+      more_set_headers "Request-Id: $request_id";
+      proxy_set_header Mc-Tenant-Id $http_mc_tenant_id;
+      proxy_set_header Mc-Caller-Service-Id "";
+      auth_request_set $user   $upstream_http_x_auth_request_user;
+      auth_request_set $email  $upstream_http_x_auth_request_email;
+      proxy_set_header Oauth2-Proxy-User  $user;
+      proxy_set_header Oauth2-Proxy-Email $email;
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /mechcloud-turbine-administration(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: mechcloud-turbine-administration
+            port: 
+              number: 80
+      - path: /mechcloud-turbine-assets(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: mechcloud-turbine-assets
+            port: 
+              number: 80
+      - path: /mechcloud-turbine-cloud-adapter(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: mechcloud-turbine-cloud-adapter
+            port: 
+              number: 80
+      - path: /mechcloud-turbine-discovery(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: mechcloud-turbine-discovery
+            port: 
+              number: 80
+      - path: /mechcloud-turbine-gcp-adapter(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: mechcloud-turbine-gcp-adapter
+            port: 
+              number: 80
+          
+          

@@ -1,8 +1,8 @@
-{{ if .Values.global.authProxy }}
+{{ if .Values.authProxy }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: oauth2-proxy
+  name: mechcloud-oauth2-proxy
 spec:
   ports:
   - name: http
@@ -10,7 +10,7 @@ spec:
     protocol: TCP
     targetPort: 4180
   selector:
-    app: oauth2-proxy
+    app: mechcloud-oauth2-proxy
 {{ end }}
 
     

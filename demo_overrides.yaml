@@ -1,0 +1,23 @@
+global:
+  baseUrl: https://demo.mechcloud.io
+  secureRegistry: true
+  mongo:
+    hostsPorts: demo.mechcloud.io:27017
+  redis:
+    host: demo.mechcloud.io
+    port: 6379
+
+# oauth2-proxy namespace
+oauth2Provider:
+   proxy:
+     cookieDomain: .mechcloud.io
+     displayName: Auth0
+     clientId: 
+     clientSecret: 
+     # docker run -ti --rm python:3-alpine python -c 'import secrets,base64; print(base64.b64encode(base64.b64encode(secrets.token_bytes(16))));'
+     cookieSecret: 
+     baseUrl: https://mechcloud.au.auth0.com
+
+# platform namespace
+authorization:
+   setupAdmin: platformadmin@mechcloud.io

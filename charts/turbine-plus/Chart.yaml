@@ -1,6 +1,0 @@
-apiVersion: v2
-name: Turbine+
-description: MechCloud Turbine+ consists of Turbine+ UI and associated services
-type: application
-version: v2.0.1
-appVersion: v2.0.1

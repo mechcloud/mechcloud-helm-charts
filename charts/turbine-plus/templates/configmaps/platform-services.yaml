@@ -1,6 +1,0 @@
-kind: ConfigMap
-apiVersion: v1
-metadata:
-   name: platform-services-configs
-data:
-   SRV_PLATFORM_IAM_BASE_URL: http://platform-iam.{{ .Values.global.namespaces.platform }}:80/v1.0

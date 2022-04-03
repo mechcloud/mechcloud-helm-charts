@@ -1,0 +1,7 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: mechcloud-platform-services-configs
+data:
+  SRV_PLATFORM_AUTHZ_BASE_URL: http://mechcloud-platform-authorization.{{ .Values.global.namespaces.platform }}:{{ .Values.global.services.port }}/v1.0
+  SRV_PLATFORM_IAM_BASE_URL: http://mechcloud-platform-iam.{{ .Values.global.namespaces.platform }}:{{ .Values.global.services.port }}/v1.0

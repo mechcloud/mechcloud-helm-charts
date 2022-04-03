@@ -1,21 +1,21 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: mechcloud-platform-iam
+  name: mechcloud-turbine-assets
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: mechcloud-platform-iam
+      app: mechcloud-turbine-assets
   template:
     metadata:
       labels:
         suite: mechcloud
-        app: mechcloud-platform-iam
+        app: mechcloud-turbine-assets
     spec:
       containers:
-      - name: mechcloud-platform-iam
-        image: {{ .Values.images.platformIam }}
+      - name: mechcloud-turbine-assets
+        image: {{ .Values.images.turbineAssets }}
         envFrom:
         - configMapRef:
             name: mechcloud-python-common-configs
@@ -23,6 +23,8 @@ spec:
             name: mechcloud-commons-services-configs
         - configMapRef:
             name: mechcloud-platform-services-configs
+        - configMapRef:
+            name: mechcloud-turbine-services-configs
         ports:
         - containerPort: 5000
       restartPolicy: Always
