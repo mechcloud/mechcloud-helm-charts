@@ -1,9 +1,11 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: commons-services-configs
+  name: mechcloud-commons-services-configs
 data:
-  SRV_COMMONS_AUTHZ_BASE_URL: http://commons-authorization.{{ .Values.global.namespaces.commons }}:80/v1.0
-  SRV_COMMONS_ENTITIES_BASE_URL: http://commons-entities.{{ .Values.global.namespaces.commons }}:80/v1.0
+  SRV_COMMONS_AUTHZ_BASE_URL: http://mechcloud-commons-authorization.{{ .Values.global.namespaces.commons }}:{{ .Values.global.services.port }}/v1.0
+  SRV_COMMONS_ENTITIES_BASE_URL: http://mechcloud-commons-entities.{{ .Values.global.namespaces.commons }}:{{ .Values.global.services.port }}/v1.0
+  SRV_COMMONS_IAM_BASE_URL: http://mechcloud-commons-iam.{{ .Values.global.namespaces.commons }}:{{ .Values.global.services.port }}/v1.0
+  SRV_COMMONS_SETTINGS_BASE_URL: http://mechcloud-commons-settings.{{ .Values.global.namespaces.commons }}:{{ .Values.global.services.port }}/v1.0
   REDIS_HOST: {{ .Values.global.redis.host }}
   REDIS_PORT: {{ .Values.global.redis.port | quote }}

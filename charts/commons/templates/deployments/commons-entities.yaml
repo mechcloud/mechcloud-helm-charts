@@ -1,42 +1,48 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: commons-entities
+  name: mechcloud-commons-entities
 spec:
   replicas: {{ .Values.global.replicaCount }}
   selector:
     matchLabels:
-      app: commons-entities
+      component: mechcloud-commons-entities
   template:
     metadata:
       labels:
-        app: commons-entities
+        suite: mechcloud
+        component: mechcloud-commons-entities
     spec:
       containers:
-      - name: commons-entities
+      - name: mechcloud-commons-entities
         image: {{ .Values.images.commonsEntities }}
         envFrom:
         - configMapRef:
-            name: python-common-configs
+            name: mechcloud-python-common-configs
         - configMapRef:
-            name: commons-services-configs
-        - configMapRef:
-            name: commons-entities-configs
+            name: mechcloud-commons-services-configs
         env:
+        - name: MONGO_HOSTS
+          value: {{ .Values.global.mongo.hostsPorts }}
+        - name: MONGO_REPLICASET
+          value: rs0
         - name: MONGO_USER
           valueFrom:
             secretKeyRef:
-              name: commons-mongodb
+              name: mechcloud-commons-mongodb
               key: username
         - name: MONGO_PWD
           valueFrom:
             secretKeyRef:
-              name: commons-mongodb
+              name: mechcloud-commons-mongodb
               key: password
         ports:
         - containerPort: 5000
-      {{ if .Values.global.secureRegistry }}
-      imagePullSecrets:
-        - name: docker-reg-creds
-      {{ end }}
       restartPolicy: Always
+      # this is required otherwise dns resolution will NOT work
+      dnsConfig:
+        options:
+          - name: ndots
+            value: "2"
+            
+            

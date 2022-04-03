@@ -1,31 +1,33 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: commons-settings
+  name: mechcloud-commons-settings
 spec:
   replicas: {{ .Values.global.replicaCount }}
   selector:
     matchLabels:
-      app: commons-settings
+      app: mechcloud-commons-settings
   template:
     metadata:
       labels:
-        app: commons-settings
+        suite: mechcloud
+        app: mechcloud-commons-settings
     spec:
       containers:
-      - name: commons-settings
-        image: {{ .Values.images.commonsAuthz }}
+      - name: mechcloud-commons-settings
+        image: {{ .Values.images.commonsSettings }}
         envFrom:
         - configMapRef:
-            name: python-common-configs
+            name: mechcloud-python-common-configs
         - configMapRef:
-            name: commons-services-configs
-        - configMapRef:
-            name: commons-settings-configs
+            name: mechcloud-commons-services-configs
         ports:
         - containerPort: 5000
-      {{ if .Values.global.secureRegistry }}
-      imagePullSecrets:
-        - name: docker-reg-creds
-      {{ end }}
       restartPolicy: Always
+      # this is required otherwise dns resolution will NOT work
+      dnsConfig:
+        options:
+          - name: ndots
+            value: "2"
+      
+      

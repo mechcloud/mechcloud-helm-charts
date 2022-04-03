@@ -1,6 +1,6 @@
 apiVersion: v2
-name: Commons
+name: MechCloud Commons
 description: Mechcloud Commons consists of mechcloud ui and common services
 type: application
-version: v2.0.2
-appVersion: v2.0.1
+version: v4.0.0
+appVersion: v4.0.0

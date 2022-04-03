@@ -1,7 +1,6 @@
 images:
-  mechcloudUi: mechcloud/mechcloud-ui:v1.0.8
-  commonsAuthz: mechcloud/commons-authorization:v1.0.3
-  commonsSettings: mechcloud/commons-settings:v1.0.3
-  commonsEntities: mechcloud/commons-entities:v1.0.4
-authorization:
-  setupAdmin: platformadmin@mechcloud.io
+  commonsUi: mechcloud/mechcloud-commons-ui:v4.0.0-50-1
+  commonsAuthz: mechcloud/mechcloud-commons-authorization:v4.0.0-169-1
+  commonsEntities: mechcloud/mechcloud-commons-entities:v4.0.0-136-1
+  commonsIam: mechcloud/mechcloud-commons-iam:v4.0.0-80-1
+  commonsSettings: mechcloud/mechcloud-commons-settings:v4.0.0-120-1
