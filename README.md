@@ -12,6 +12,7 @@
 
 export MONGO_USER=
 export MONGO_PWD=
+# A random string to encrypt sensitive data before persisting in DB
 export ENCRYPTION_KEY=
 ```
 * Deploy `MechCloud` using following command -
