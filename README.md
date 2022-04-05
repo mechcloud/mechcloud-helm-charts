@@ -20,3 +20,5 @@ export ENCRYPTION_KEY=
 ./deploy.sh demo
 ```
 
+MechCloud documentation - https://docs.mechcloud.io
+
