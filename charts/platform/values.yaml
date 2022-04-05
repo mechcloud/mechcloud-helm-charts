@@ -2,5 +2,4 @@ images:
   platformUi: mechcloud/mechcloud-platform-ui:v4.0.0-45-1
   platformAuthz: mechcloud/mechcloud-platform-authorization:v4.0.0-68-1
   platformIam: mechcloud/mechcloud-platform-iam:v4.0.0-104-1
-authorization:
-  setupAdmin: ''
+

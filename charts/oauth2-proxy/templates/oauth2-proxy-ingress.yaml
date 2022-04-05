@@ -1,4 +1,4 @@
-{{ if .Values.authProxy }}
+{{ if .Values.oauth2Proxy.authProxy }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:

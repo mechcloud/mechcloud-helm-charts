@@ -1,4 +1,4 @@
-{{ if .Values.authProxy }}
+{{ if .Values.oauth2Proxy.authProxy }}
 apiVersion: v1
 kind: Service
 metadata:

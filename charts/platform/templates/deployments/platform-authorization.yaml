@@ -18,7 +18,7 @@ spec:
         image: {{ .Values.images.platformAuthz }}
         env:
         - name: SETUP_ADMIN
-          value: {{ .Values.authorization.setupAdmin }}
+          value: {{ .Values.platform.authorization.setupAdmin }}
         envFrom:
         - configMapRef:
             name: mechcloud-python-common-configs

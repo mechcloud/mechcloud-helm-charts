@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# shopt -s expand_aliases
-# source ~/.bash_aliases
-
 if [[ -z "$1" ]]; then
 	echo 'Target environment prefix is missing. Expected command : ./deploy.sh <environment_prefix>. Example : ./deploy.sh demo'
 	exit 0
@@ -35,15 +32,15 @@ if [[ -z "$ENCRYPTION_KEY" ]]; then
 fi
 
 # =====> Deploy oauth2-proxy
-if [[ "$apps" == "all" ]]; then
+if [[ "$apps" == "all" || "$apps" == *"oauth2-proxy"* ]]; then
 	cd $CHARTS_HOME/charts/oauth2-proxy
 	
 	K8_NAMESPACE=mechcloud-oauth2-proxy
 	kubectl create ns $K8_NAMESPACE
 	
-	kubectl -n $K8_NAMESPACE delete pods --all
+	kubectl -n $K8_NAMESPACE delete deployments --all
 
-	helm -n $K8_NAMESPACE upgrade -i $K8_NAMESPACE --create-namespace . -f ../../values.yaml -f ../../$1_overrides.yaml
+	helm -n $K8_NAMESPACE upgrade -i $K8_NAMESPACE --create-namespace . -f ../../$1_overrides.yaml
 fi
 
 # =====> Deploy Commons
@@ -53,15 +50,7 @@ if [[ "$apps" == "all" || "$apps" == *"commons"* ]]; then
 	K8_NAMESPACE=mechcloud-commons
 	kubectl create ns $K8_NAMESPACE
 	
-	if [[ -n "$REGISTRY_USERNAME" && -n "$REGISTRY_PWD" ]]; then
-		kubectl -n $K8_NAMESPACE delete secret docker-reg-creds
-	
-		kubectl -n $K8_NAMESPACE create secret generic docker-reg-creds \
-		    --from-file=.dockerconfigjson=/home/$USER/.docker/config.json \
-		    --type=kubernetes.io/dockerconfigjson
-	fi
-	
-	kubectl -n $K8_NAMESPACE delete pods --all
+	kubectl -n $K8_NAMESPACE delete deployments --all
 
 	helm -n $K8_NAMESPACE upgrade -i $K8_NAMESPACE --create-namespace . -f ../../values.yaml -f ../../$1_overrides.yaml \
 		--set global.mongo.username=$MONGO_USER \
@@ -76,15 +65,7 @@ if [[ "$apps" == "all" || "$apps" == *"platform"* ]]; then
 	K8_NAMESPACE=mechcloud-platform
 	kubectl create ns $K8_NAMESPACE
 	
-	if [[ -n "$REGISTRY_USERNAME" && -n "$REGISTRY_PWD" ]]; then
-		kubectl -n $K8_NAMESPACE delete secret docker-reg-creds
-		
-		kubectl -n $K8_NAMESPACE create secret generic docker-reg-creds \
-		    --from-file=.dockerconfigjson=/home/$USER/.docker/config.json \
-		    --type=kubernetes.io/dockerconfigjson
-	fi
-	
-	kubectl -n $K8_NAMESPACE delete pods --all
+	kubectl -n $K8_NAMESPACE delete deployments --all
 
 	helm -n $K8_NAMESPACE upgrade -i $K8_NAMESPACE --create-namespace . -f ../../values.yaml -f ../../$1_overrides.yaml \
 		--set global.shared.encryptionKey=$ENCRYPTION_KEY
@@ -97,15 +78,7 @@ if [[ "$apps" == "all" || "$apps" == *"turbine"* ]]; then
 	K8_NAMESPACE=mechcloud-turbine
 	kubectl create ns $K8_NAMESPACE
 	
-	if [[ -n "$REGISTRY_USERNAME" && -n "$REGISTRY_PWD" ]]; then
-		kubectl -n $K8_NAMESPACE delete secret docker-reg-creds
-		
-		kubectl -n $K8_NAMESPACE create secret generic docker-reg-creds \
-		    --from-file=.dockerconfigjson=/home/$USER/.docker/config.json \
-		    --type=kubernetes.io/dockerconfigjson
-	fi
-	
-	kubectl -n $K8_NAMESPACE delete pods --all
+	kubectl -n $K8_NAMESPACE delete deployments --all
 
 	helm -n $K8_NAMESPACE upgrade -i $K8_NAMESPACE --create-namespace . -f ../../values.yaml -f ../../$1_overrides.yaml \
 		--set global.shared.encryptionKey=$ENCRYPTION_KEY
