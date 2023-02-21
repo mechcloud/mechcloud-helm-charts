@@ -8,3 +8,4 @@ data:
    SRV_TURBINE_CLOUD_ADAPTER_BASE_URL: http://mechcloud-turbine-cloud-adapter.{{ .Values.global.namespaces.turbine }}:{{ .Values.global.services.port }}/v1.0
    SRV_TURBINE_DISCOVERY_BASE_URL: http://mechcloud-turbine-discovery.{{ .Values.global.namespaces.turbine }}:{{ .Values.global.services.port }}/v1.0
    SRV_TURBINE_GCP_ADAPTER_BASE_URL: http://mechcloud-turbine-gcp-adapter.{{ .Values.global.namespaces.turbine }}:{{ .Values.global.services.port }}/v1.0
+   SRV_TURBINE_AZURE_ADAPTER_BASE_URL: http://mechcloud-turbine-azure-adapter.{{ .Values.global.namespaces.turbine }}:{{ .Values.global.services.port }}/v1.0

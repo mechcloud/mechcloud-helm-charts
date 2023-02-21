@@ -1,7 +1,8 @@
 images:
-  turbineUi: mechcloud/mechcloud-app-turbine:v4.0.0-55-1
-  turbineAdministration: mechcloud/mechcloud-turbine-administration:v4.0.0-125-1
-  turbineAssets: mechcloud/mechcloud-turbine-assets:v4.0.0-124-1
-  turbineCloudAdapter: mechcloud/mechcloud-turbine-cloud-adapter:v4.0.0-86-1
-  turbineDiscovery: mechcloud/mechcloud-turbine-discovery:v4.0.0-165-1
-  turbineGCPAdapter: mechcloud/mechcloud-turbine-gcp-adapter:v4.0.0-108-1
+  turbineUi: koyadume/mechcloud-app-turbine:4.x-a72204b-60-1
+  turbineAdministration: koyadume/mechcloud-turbine-administration:4.x-8bccc6b-129-1
+  turbineAssets: koyadume/mechcloud-turbine-assets:4.x-165f155-130-1
+  turbineCloudAdapter: koyadume/mechcloud-turbine-cloud-adapter:4.x-b64fc2b-92-1
+  turbineDiscovery: koyadume/mechcloud-turbine-discovery:4.x-c50d244-174-1
+  turbineGCPAdapter: koyadume/mechcloud-turbine-gcp-adapter:4.x-abbe8ae-112-1
+  turbineAzureAdapter: koyadume/mechcloud-turbine-azure-adapter:4.x-9c1bc54-11-1

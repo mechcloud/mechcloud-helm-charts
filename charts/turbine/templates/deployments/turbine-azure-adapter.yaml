@@ -1,30 +1,24 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: mechcloud-turbine-discovery
+  name: mechcloud-turbine-azure-adapter
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: mechcloud-turbine-discovery
+      app: mechcloud-turbine-azure-adapter
   template:
     metadata:
       labels:
         suite: mechcloud
-        app: mechcloud-turbine-discovery
+        app: mechcloud-turbine-azure-adapter
     spec:
       containers:
-      - name: mechcloud-turbine-discovery
-        image: {{ .Values.images.turbineDiscovery }}
+      - name: mechcloud-turbine-azure-adapter
+        image: {{ .Values.images.turbineAzureAdapter }}
         envFrom:
         - configMapRef:
             name: mechcloud-python-common-configs
-        - configMapRef:
-            name: mechcloud-commons-services-configs
-        - configMapRef:
-            name: mechcloud-platform-services-configs
-        - configMapRef:
-            name: mechcloud-turbine-services-configs
         ports:
         - containerPort: 5000
       {{ if .Values.global.secureRegistry }}

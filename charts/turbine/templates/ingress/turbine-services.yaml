@@ -54,5 +54,12 @@ spec:
             name: mechcloud-turbine-gcp-adapter
             port: 
               number: 80
+      - path: /mechcloud-turbine-azure-adapter(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: mechcloud-turbine-azure-adapter
+            port: 
+              number: 80
           
           

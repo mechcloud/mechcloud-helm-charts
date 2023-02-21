@@ -1,6 +1,6 @@
 images:
-  commonsUi: mechcloud/mechcloud-commons-ui:v4.0.0-50-1
-  commonsAuthz: mechcloud/mechcloud-commons-authorization:v4.0.0-169-1
-  commonsEntities: mechcloud/mechcloud-commons-entities:v4.0.0-136-1
-  commonsIam: mechcloud/mechcloud-commons-iam:v4.0.0-80-1
-  commonsSettings: mechcloud/mechcloud-commons-settings:v4.0.0-120-1
+  commonsUi: koyadume/mechcloud-commons-ui:4.x-330e80c-49-1
+  commonsAuthz: koyadume/mechcloud-commons-authorization:4.x-332b18d-155-1
+  commonsEntities: koyadume/mechcloud-commons-entities:4.x-fe04a7f-128-1
+  commonsIam: koyadume/mechcloud-commons-iam:4.x-0284bd2-72-1
+  commonsSettings: koyadume/mechcloud-commons-settings:4.x-c82f27c-110-1

@@ -38,6 +38,10 @@ spec:
               key: password
         ports:
         - containerPort: 5000
+      {{ if .Values.global.secureRegistry }}
+      imagePullSecrets:
+        - name: docker-reg-creds
+      {{ end }}
       restartPolicy: Always
       # this is required otherwise dns resolution will NOT work
       dnsConfig:

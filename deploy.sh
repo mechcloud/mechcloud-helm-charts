@@ -12,6 +12,10 @@ fi
 
 export CHARTS_HOME=`pwd`
 
+# Private docker registry
+REGISTRY_USERNAME=$REGISTRY_USERNAME
+REGISTRY_PWD=$REGISTRY_PWD
+
 # MongoDB
 MONGO_USER=$MONGO_USER
 MONGO_PWD=$MONGO_PWD
@@ -49,6 +53,15 @@ if [[ "$apps" == "all" || "$apps" == *"commons"* ]]; then
 	
 	K8_NAMESPACE=mechcloud-commons
 	kubectl create ns $K8_NAMESPACE
+
+	if [[ -n "$REGISTRY_USERNAME" && -n "$REGISTRY_PWD" ]]; then
+		kubectl -n $K8_NAMESPACE delete secret docker-reg-creds
+	
+		kubectl -n $K8_NAMESPACE create secret docker-registry docker-reg-creds \
+		    --docker-username=$REGISTRY_USERNAME \
+		    --docker-password=$REGISTRY_PWD
+
+	fi
 	
 	kubectl -n $K8_NAMESPACE delete deployments --all
 
@@ -64,6 +77,15 @@ if [[ "$apps" == "all" || "$apps" == *"platform"* ]]; then
 	
 	K8_NAMESPACE=mechcloud-platform
 	kubectl create ns $K8_NAMESPACE
+
+	if [[ -n "$REGISTRY_USERNAME" && -n "$REGISTRY_PWD" ]]; then
+		kubectl -n $K8_NAMESPACE delete secret docker-reg-creds
+	
+		kubectl -n $K8_NAMESPACE create secret docker-registry docker-reg-creds \
+		    --docker-username=$REGISTRY_USERNAME \
+		    --docker-password=$REGISTRY_PWD
+
+	fi
 	
 	kubectl -n $K8_NAMESPACE delete deployments --all
 
@@ -77,6 +99,15 @@ if [[ "$apps" == "all" || "$apps" == *"turbine"* ]]; then
 	
 	K8_NAMESPACE=mechcloud-turbine
 	kubectl create ns $K8_NAMESPACE
+
+	if [[ -n "$REGISTRY_USERNAME" && -n "$REGISTRY_PWD" ]]; then
+		kubectl -n $K8_NAMESPACE delete secret docker-reg-creds
+	
+		kubectl -n $K8_NAMESPACE create secret docker-registry docker-reg-creds \
+		    --docker-username=$REGISTRY_USERNAME \
+		    --docker-password=$REGISTRY_PWD
+
+	fi
 	
 	kubectl -n $K8_NAMESPACE delete deployments --all
 

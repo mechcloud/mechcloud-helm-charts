@@ -1,5 +1,5 @@
 images:
-  platformUi: mechcloud/mechcloud-platform-ui:v4.0.0-45-1
-  platformAuthz: mechcloud/mechcloud-platform-authorization:v4.0.0-68-1
-  platformIam: mechcloud/mechcloud-platform-iam:v4.0.0-104-1
+  platformUi: koyadume/mechcloud-platform-ui:4.x-199c5db-44-1
+  platformAuthz: koyadume/mechcloud-platform-authorization:4.x-b492803-60-1
+  platformIam: koyadume/mechcloud-platform-iam:4.x-83cc9eb-96-1
 

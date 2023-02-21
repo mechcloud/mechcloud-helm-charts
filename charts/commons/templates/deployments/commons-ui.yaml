@@ -18,6 +18,10 @@ spec:
         image: {{ .Values.images.commonsUi }}
         ports:
         - containerPort: 80
+      {{ if .Values.global.secureRegistry }}
+      imagePullSecrets:
+        - name: docker-reg-creds
+      {{ end }}
       restartPolicy: Always
       
       
